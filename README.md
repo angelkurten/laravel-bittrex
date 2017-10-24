@@ -37,7 +37,7 @@ Add the alias to your `config/app.php`:
 Please refer to the [Api Documentation](https://bittrex.com/home/api) for more info, or read the [docblocks](https://github.com/angelkurten/laravel-bittrex/blob/master/src/Client.php) !
 
 ```
-use Pepijnolivier\Bittrex\Bittrex;
+use Angelkurten\Bittrex\Bittrex;
 
 // public API methods
 Bittrex::getMarkets();
@@ -67,6 +67,10 @@ Bittrex::getOrder($uuid);
 Bittrex::getOrderHistory($market=null);
 Bittrex::getWithdrawalHistory($currency=null);
 Bittrex::getDepositHistory($currency=null);
+
+// For multiple accounts
+Bittrex::setAuthKey($key);
+Bittrex::setAuthSecret($secret);
 ```
 
 
