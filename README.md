@@ -8,11 +8,11 @@ Start trading on Bittrex right away using your favorite PHP framework.
 
 Add the service provider to your `config/app.php`:
  
- ``` 
- 'providers' => [
+```php
+'providers' => [
     AngelKurten\Bittrex\BittrexServiceProvider::class,
- ],
- ```
+],
+```
  
 ...run `php artisan vendor:publish` to copy the config file.
 
@@ -21,12 +21,11 @@ Edit the `config/bittrex.php` or add Bittrex api and secret in your `.env` file
 ```
 BITTREX_KEY={YOUR_API_KEY}
 BITTREX_SECRET={YOUR_API_SECRET}
-
 ```
 
 Add the alias to your `config/app.php`:
 
-```    
+```php
 'aliases' => [
     'Bittrex' => Angelkurten\Bittrex\Bittrex::class,
 ],
@@ -36,7 +35,7 @@ Add the alias to your `config/app.php`:
 
 Please refer to the [Api Documentation](https://bittrex.com/home/api) for more info, or read the [docblocks](https://github.com/angelkurten/laravel-bittrex/blob/master/src/Client.php) !
 
-```
+```php
 use Angelkurten\Bittrex\Bittrex;
 
 // public API methods
@@ -45,34 +44,33 @@ Bittrex::getCurrencies();
 Bittrex::getTicker($marker);
 Bittrex::getMarketSummaries();
 Bittrex::getMarketSummary($market);
-Bittrex::getOrderBook($market, $type, $depth=20);
+Bittrex::getOrderBook($market, $type, $depth = 20);
 Bittrex::getMarketHistory($market);
 
 // Public API 2.0 methods
 Bittrex::getValidChartDataTickIntervals();
-Bittrex::getChartData($market, $tickInterval='hour');
+Bittrex::getChartData($market, $tickInterval = 'hour');
 
 // market API methods
 Bittrex::buyLimit($market, $quantity, $rate);
 Bittrex::sellLimit($market, $quantity, $rate);
 Bittrex::cancelOrder($uuid);
-Bittrex::getOpenOrders($market=null);
+Bittrex::getOpenOrders($market = null);
 
 // account API methods
 Bittrex::getBalances();
 Bittrex::getBalance($currency);
 Bittrex::getDepositAddress($currency);
-Bittrex::withdraw($currency, $quantity, $address, $paymentId=null);
+Bittrex::withdraw($currency, $quantity, $address, $paymentId = null);
 Bittrex::getOrder($uuid);
-Bittrex::getOrderHistory($market=null);
-Bittrex::getWithdrawalHistory($currency=null);
-Bittrex::getDepositHistory($currency=null);
+Bittrex::getOrderHistory($market = null);
+Bittrex::getWithdrawalHistory($currency = null);
+Bittrex::getDepositHistory($currency = null);
 
 // For multiple accounts
 Bittrex::setAuthKey($key);
 Bittrex::setAuthSecret($secret);
 ```
-
 
 This package is provided as-is. Do with it what you want ! PR's will be looked into.
 I personally believe in freedom and equality, which is one of the reasons I'm in crypto.
